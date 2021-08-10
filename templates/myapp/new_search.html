@@ -1,8 +1,17 @@
 {% extends 'base.html' %}
 <!--Just To Indent-->
-{% block content %}
+{% csrf_token %}
 <!--Django Security Token-->
-<h2 class="center">{{search | title}}</h2>
+{% block search %}
+{% include 'myapp/search-bar.html' %}
+ {% endblock %}
+{% block content %} 
+{% if final_postings %}
+
+{% else %}
+<h2 class="center">So Sorry Nothing Found!</h2>
+{% endif %}
+<h2 class="center">{{search | title}} at {{city | title}}</h2>
 <div class="row">
   {% for post in final_postings %}
   <div class="col s4">
@@ -19,5 +28,6 @@
     </div>
   </div>
   {% endfor %}
+
 </div>
 {% endblock content %}

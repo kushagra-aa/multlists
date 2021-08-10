@@ -4,23 +4,37 @@ from django.shortcuts import render
 from requests.compat import quote_plus
 from . import models
 # Create your views here.
-BASE_CRAIGSLIST_URL = 'https://newyork.craigslist.org/search/?query={}'
+BASE_CRAIGSLIST_URL = "https://{}.craigslist.org/search/?query={}"
 BASE_IMAGE_URL = 'https://images.craigslist.org/{}_300x300.jpg'
-
+CITY = ''
+SEARCH_TERM = ''
+# FINAL_URL = BASE_CRAIGSLIST_URL.format(quote_plus(SEARCH_TERM))
+# ADD FOOOTER
 
 def home(request):
-    return render(request, 'base.html')
+    return render(request, 'myapp/city.html')
+
+def about(request):
+    return render(request, 'about.html')
+
+def contact(request):
+    return render(request, 'contact.html')
+
 
 # ADD CITY ADDING FEATURE
 # USER ENTERS THE CITY THEY WANT TO SEARCH
-# ADD NOT FOUND IF FINAL_POSTINGS IS EMPTY
+def search(request):
+    global CITY
+    CITY = request.POST.get('city').lower().replace(" ", "")
+    return render(request, 'myapp/search.html')
 
 
 def new_search(request):
-    search = request.POST.get('search')
+    global SEARCH_TERM
+    SEARCH_TERM = request.POST.get('search')
+    FINAL_URL = BASE_CRAIGSLIST_URL.format(CITY, quote_plus(SEARCH_TERM))
     models.Search.objects.create(search=search)
-    final_url = BASE_CRAIGSLIST_URL.format(quote_plus(search))
-    response = requests.get(final_url)
+    response = requests.get(FINAL_URL)
     data = response.text
     soup = BeautifulSoup(data, features='html.parser')
 
@@ -49,8 +63,9 @@ def new_search(request):
             (post_title, post_url, post_price, post_image_url))
 
     stuff_for_frontend = {
-        'search': search,
+        'search': SEARCH_TERM,
         'final_postings': final_postings,
+        'city': CITY
     }
 
     return render(request, 'myapp/new_search.html', stuff_for_frontend)
