@@ -6,7 +6,6 @@
     <title>Mult Lists</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="{% static "css/style.css" %}">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
@@ -15,6 +14,7 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
   </head>
   <body>
     {% block nav %} 
@@ -38,6 +38,10 @@
       {% comment %} Search Results(new_search) {% endcomment %} 
       {% endblock %}
     </div>
+      {% block footer %}
+      {% include 'footer.html' %}
+      {% comment %} FOOTER(footer) {% endcomment %} 
+      {% endblock  %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </body>
 </html>

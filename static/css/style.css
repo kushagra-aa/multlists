@@ -1,0 +1,9 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  height: 100vh !important;
+  background: #000 !important;
+}
