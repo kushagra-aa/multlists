@@ -1,0 +1,25 @@
+footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100% !important;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary1) !important;
+  color: var(--accent) !important;
+}
+.footer-copy {
+  color: var(--accent);
+}
+.rt {
+  position: absolute;
+  right: 40px;
+}
+.sec {
+  color: var(--secondary) !important;
+  transition: all 0.3s ease-in-out;
+}
+.sec:hover {
+  color: var(--accent) !important;
+}

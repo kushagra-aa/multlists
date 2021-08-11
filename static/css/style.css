@@ -1,9 +1,35 @@
+@import url("colors.css");
+@import url("nav.css");
+@import url("search.css");
+@import url("new_search.css");
+@import url("footer.css");
+
+::-moz-selection {
+  /* Code for Firefox */
+  color: var(--primary2);
+  background: var(--accent);
+}
+
+::selection {
+  color: var(--primary2);
+  background: var(--accent);
+}
+
 * {
   padding: 0px;
   margin: 0px;
+  color: var(--primary1);
 }
 
 body {
   height: 100vh !important;
-  background: #000 !important;
+  background: var(--primary3) !important;
+}
+
+i {
+  color: var(--primary2);
+}
+
+.sec {
+  color: var(--secondary) !important;
 }

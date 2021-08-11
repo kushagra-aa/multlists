@@ -1,0 +1,28 @@
+nav {
+  background: var(--primary1) !important;
+}
+
+.brand-logo {
+  color: var(--secondary) !important;
+}
+.brand-logo:hover {
+  color: var(--accent) !important;
+  transition: all 0.3s ease-in-out;
+  
+}
+
+nav div ul li a {
+  color: var(--primary3) !important;
+}
+
+nav div ul li a:hover {
+  color: var(--secondary) !important;
+  transition: all 0.3s ease-in-out;
+
+}
+
+nav div ul li:hover {
+  background: var(--primary2) !important;
+  transition: all 0.3s ease-in-out;
+
+}
