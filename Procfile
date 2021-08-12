@@ -1,1 +1,1 @@
-web: gunicorn mult-lists.wsgi
+web:gunicorn multlists.wsgi
