@@ -24,8 +24,11 @@ TEMPLATE_DIR = Path.joinpath(BASE_DIR, 'templates')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-jz)6ax*%^)a#lpg4&v6t&rn51qe%z%uvuwkb1&a7xa9)re74cz'
 
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -68,7 +71,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'multlists.wsgi.application'
+# WSGI_APPLICATION = 'multlists.wsgi.application'
 
 
 # Database
