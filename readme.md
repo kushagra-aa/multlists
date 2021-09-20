@@ -49,7 +49,7 @@ python manage.py createsuperuser
 ```
 then
 ```bash
-python manage.py makemigrations ig_miner_app
+python manage.py makemigrations
 ```
 to makemigrations for the app
 
